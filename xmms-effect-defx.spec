@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://defx.sourceforge.net/defx/defx-%{version}.tar.gz
+# Source0-md5:	eee11e5299425b729ad7ad5a588e3906
 URL:		http://defx.sourceforge.net/
 BuildRequires:	xmms-devel >= 1.2.3
 Requires:	xmms
