@@ -1,5 +1,5 @@
 Summary:	DeFX Multi-effects processor Plug-in for XMMS
-Summary(pl):	Procesor efektów DeFX - plugin dla XMMS
+Summary(pl):	Procesor efektów DeFX - wtyczka dla XMMS
 Name:		xmms-effect-defx
 Version:	0.9.8
 Release:	1
@@ -7,39 +7,37 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://defx.sourceforge.net/defx/defx-%{version}.tar.gz
 URL:		http://defx.sourceforge.net/
-Requires:	xmms
 BuildRequires:	xmms-devel >= 1.2.3
+Requires:	xmms
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 
 %description
-DeFX is a plug-in module for XMMS.
-
-DeFX support 6 types of effects, grouped into 4 different modules.
-    - Karaoke : Removes the song's voices trying to preserve the bass and
-      drums
-    - Panning : Smoothly selects between the two stereo channels
-    - Modulation : Three classical effects. Flange, phaser and chorus
-    - Reverberation : You can simulate your songs as being played in a
-      huge room
+DeFX is a plug-in module for XMMS. It supports 6 types of effects,
+grouped into 4 different modules:
+ - Karaoke: Removes the song's voices trying to preserve the bass and
+   drums
+ - Panning: Smoothly selects between the two stereo channels
+ - Modulation: Three classical effects. Flange, phaser and chorus
+ - Reverberation: You can simulate your songs as being played in a
+   huge room.
 
 %description -l pl
-DeFX jest pluginem dla XMMS.
-
-DeFX wpiera 6 typów efektów, które s± pogrupowane w 4 modu³y.
+DeFX to wtyczka do XMMS umo¿liwiaj±ca uzyskanie 6 typów efektów,
+pogrupowanych w 4 oddzielne modu³y:
 - Karaoke: usuwa g³os staraj±c siê zachowaæ resztê d¼wiêków,
-- Panning: p³ynny wybór miêdzy kana³ami stereo,
+- Panning: p³ynne przej¶cia miêdzy kana³ami stereo,
 - Modulacja: trzy klasyczne efekty: flange, fazer i chorus,
 - Rewerbracja: symuluje odtwarzanie w du¿ym pomieszczeniu.
 
 %prep
 %setup -q -n defx-%{version}
+
 %build
 %{__make} \
-	COMMON_CFLAGS="%{rpmcflags} \
-	-ffast-math `glib-config --cflags`"
+	COMMON_CFLAGS="%{rpmcflags} -ffast-math `glib-config --cflags`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
