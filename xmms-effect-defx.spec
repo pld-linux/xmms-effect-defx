@@ -41,8 +41,9 @@ pogrupowanych w 4 oddzielne modu³y:
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{xmms_effect_plugindir}
 
-install -D lib/defx.so $RPM_BUILD_ROOT%{xmms_effect_plugindir}
+install lib/defx.so $RPM_BUILD_ROOT%{xmms_effect_plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
