@@ -16,12 +16,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 DeFX is a plug-in module for XMMS. It supports 6 types of effects,
 grouped into 4 different modules:
- - Karaoke: Removes the song's voices trying to preserve the bass and
-   drums
- - Panning: Smoothly selects between the two stereo channels
- - Modulation: Three classical effects. Flange, phaser and chorus
- - Reverberation: You can simulate your songs as being played in a
-   huge room.
+- Karaoke: Removes the song's voices trying to preserve the bass and
+  drums
+- Panning: Smoothly selects between the two stereo channels
+- Modulation: Three classical effects. Flange, phaser and chorus
+- Reverberation: You can simulate your songs as being played in a
+  huge room.
 
 %description -l pl
 DeFX to wtyczka do XMMS umo¿liwiaj±ca uzyskanie 6 typów efektów,
