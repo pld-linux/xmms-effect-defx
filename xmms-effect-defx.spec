@@ -11,8 +11,6 @@ BuildRequires:	xmms-devel >= 1.2.3
 Requires:	xmms
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 DeFX is a plug-in module for XMMS. It supports 6 types of effects,
