@@ -32,7 +32,7 @@ pogrupowanych w 4 oddzielne modu³y:
 - Rewerbracja: symuluje odtwarzanie w du¿ym pomieszczeniu.
 
 %prep
-%setup -q -n defx-%{version}
+%setup -q -n xmms-defx-%{version}
 
 %build
 %{__make} \
