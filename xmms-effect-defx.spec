@@ -4,7 +4,7 @@ Name:		xmms-effect-defx
 Version:	0.9.8
 Release:	1
 License:	GPL
-Group:		X11/Applications/Multimedia
+Group:		X11/Applications/Sound
 Source0:	http://defx.sourceforge.net/defx/defx-%{version}.tar.gz
 URL:		http://defx.sourceforge.net/
 BuildRequires:	xmms-devel >= 1.2.3
