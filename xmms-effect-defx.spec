@@ -2,17 +2,16 @@ Summary:	DeFX Multi-effects processor Plug-in for XMMS
 Summary(pl):	Procesor efektów DeFX - wtyczka dla XMMS
 Name:		xmms-effect-defx
 Version:	0.9.8
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://defx.sourceforge.net/defx/defx-%{version}.tar.gz
 # Source0-md5:	eee11e5299425b729ad7ad5a588e3906
 URL:		http://defx.sourceforge.net/
+BuildRequires:	rpmbuild(macros) >= 1.125
 BuildRequires:	xmms-devel >= 1.2.3
 Requires:	xmms
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_xmms_plugin_dir	%(xmms-config --effect-plugin-dir)
 
 %description
 DeFX is a plug-in module for XMMS. It supports 6 types of effects,
@@ -43,8 +42,7 @@ pogrupowanych w 4 oddzielne modu³y:
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -D lib/defx.so \
-	$RPM_BUILD_ROOT%{_xmms_plugin_dir}/defx.so
+install -D lib/defx.so $RPM_BUILD_ROOT%{xmms_effect_plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,4 +50,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/* README
-%attr(755,root,root) %{_xmms_plugin_dir}/*.so
+%attr(755,root,root) %{xmms_effect_plugindir}/*.so
