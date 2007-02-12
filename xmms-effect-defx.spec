@@ -1,5 +1,5 @@
 Summary:	DeFX Multi-effects processor Plug-in for XMMS
-Summary(pl.UTF-8):   Procesor efektów DeFX - wtyczka dla XMMS
+Summary(pl.UTF-8):	Procesor efektów DeFX - wtyczka dla XMMS
 Name:		xmms-effect-defx
 Version:	0.9.9
 Release:	1
