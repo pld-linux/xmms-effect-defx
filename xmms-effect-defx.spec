@@ -1,5 +1,5 @@
 Summary:	DeFX Multi-effects processor Plug-in for XMMS
-Summary(pl):	Procesor efektów DeFX - wtyczka dla XMMS
+Summary(pl.UTF-8):   Procesor efektÃ³w DeFX - wtyczka dla XMMS
 Name:		xmms-effect-defx
 Version:	0.9.9
 Release:	1
@@ -23,13 +23,13 @@ grouped into 4 different modules:
 - Reverberation: You can simulate your songs as being played in a
   huge room.
 
-%description -l pl
-DeFX to wtyczka do XMMS umo¿liwiaj±ca uzyskanie 6 typów efektów,
-pogrupowanych w 4 oddzielne modu³y:
-- Karaoke: usuwa g³os staraj±c siê zachowaæ resztê d¼wiêków,
-- Panning: p³ynne przej¶cia miêdzy kana³ami stereo,
+%description -l pl.UTF-8
+DeFX to wtyczka do XMMS umoÅ¼liwiajÄ…ca uzyskanie 6 typÃ³w efektÃ³w,
+pogrupowanych w 4 oddzielne moduÅ‚y:
+- Karaoke: usuwa gÅ‚os starajÄ…c siÄ™ zachowaÄ‡ resztÄ™ dÅºwiÄ™kÃ³w,
+- Panning: pÅ‚ynne przejÅ›cia miÄ™dzy kanaÅ‚ami stereo,
 - Modulacja: trzy klasyczne efekty: flange, fazer i chorus,
-- Rewerbracja: symuluje odtwarzanie w du¿ym pomieszczeniu.
+- Rewerbracja: symuluje odtwarzanie w duÅ¼ym pomieszczeniu.
 
 %prep
 %setup -q -n xmms-defx-%{version}
