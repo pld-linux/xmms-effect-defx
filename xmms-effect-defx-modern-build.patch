@@ -1,0 +1,59 @@
+Fix missing C headers and honor RPM linker flags.
+
+This keeps the legacy build working with current toolchains without
+changing plugin behavior.
+
+diff -urN a/Makefile new/Makefile
+--- a/Makefile	2026-03-15 17:09:11.029824186 +0100
++++ b/Makefile	2026-03-15 17:09:11.034469869 +0100
+@@ -7,7 +7,7 @@
+ all: $(DEFX)
+ 
+ $(DEFX):  $(COMMONLIBS)
+-	$(CC) $(LIBDIR) -shared src/plugin.o  -o $@ $(COMMONLIBS) 
++	$(CC) $(LDFLAGS) $(LIBDIR) -shared src/plugin.o  -o $@ $(COMMONLIBS) 
+ 	cp $(DEFX) ..
+ 
+ clean :
+diff -urN a/src/config.c new/src/config.c
+--- a/src/config.c	2026-03-15 17:09:11.038152577 +0100
++++ b/src/config.c	2026-03-15 17:09:11.041737069 +0100
+@@ -1,4 +1,5 @@
+ /* Configuration save/restore routines */
++#include <string.h>
+ #include <stdlib.h>
+ #include <xmms/configfile.h>
+ #include "config.h"
+diff -urN a/src/fx/mod.c new/src/fx/mod.c
+--- a/src/fx/mod.c	2026-03-15 17:09:11.043507655 +0100
++++ b/src/fx/mod.c	2026-03-15 17:09:11.047331787 +0100
+@@ -1,5 +1,6 @@
+ /* Chorus, Flange and Phaser module */
+ 
++#include <stdlib.h>
+ #include <math.h>
+ #include <fx/fx.h> 
+ 
+diff -urN a/src/gui/gui.c new/src/gui/gui.c
+--- a/src/gui/gui.c	2026-03-15 17:09:11.049586611 +0100
++++ b/src/gui/gui.c	2026-03-15 17:09:11.053240824 +0100
+@@ -7,6 +7,7 @@
+ #include <gui/pan.h>
+ #include <gui/reverb.h>
+ #include <config.h>
++#include <fx/fx.h>
+ #include <plugin.h>
+ 
+ #define nPanels 4
+diff -urN a/src/gui/mod.c new/src/gui/mod.c
+--- a/src/gui/mod.c	2026-03-15 17:09:11.055006742 +0100
++++ b/src/gui/mod.c	2026-03-15 17:09:11.058516707 +0100
+@@ -43,7 +43,7 @@
+ }
+ 
+ /* change FX type */
+-static gui_mod_type(GtkRadioButton *w, gpointer data){
++static void gui_mod_type(GtkRadioButton *w, gpointer data){
+ 	if (GTK_TOGGLE_BUTTON(w)->active) {
+ 		type=(int)data;
+ 		defx_param(FX_MOD,nLevels+1,type);

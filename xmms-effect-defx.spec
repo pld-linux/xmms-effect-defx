@@ -2,11 +2,12 @@ Summary:	DeFX Multi-effects processor Plug-in for XMMS
 Summary(pl.UTF-8):	Procesor efektów DeFX - wtyczka dla XMMS
 Name:		xmms-effect-defx
 Version:	0.9.9
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/defx/xmms-defx-%{version}.tar.gz
 # Source0-md5:	89d1e2dce6fcb8eedada91891366a9ba
+Patch0:		%{name}-modern-build.patch
 URL:		http://defx.sourceforge.net/
 BuildRequires:	rpmbuild(macros) >= 1.125
 BuildRequires:	xmms-devel >= 1.2.3
@@ -33,11 +34,13 @@ pogrupowanych w 4 oddzielne moduły:
 
 %prep
 %setup -q -n xmms-defx-%{version}
+%patch -P0 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CFLAGS="-c %{rpmcflags} -fPIC -ffast-math `gtk-config --cflags`"
+	CFLAGS="-c %{rpmcflags} -fPIC -ffast-math `gtk-config --cflags`" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
